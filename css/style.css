@@ -56,10 +56,14 @@
     transform: scale(1.2);
 }
 
-.big_image_container img.active {
+/* .big_image_container img.active {
     opacity: 1;
 }
 
 .scroll_image img.active {
     opacity: 1;
+} */
+
+.active {
+    opacity: 1 !important;
 }
