@@ -26,6 +26,9 @@ const listText = [
 // Individuo l'html da modificare
 const bigImgContainer = document.querySelector(".big_image_container")
 const scrollImgContainer = document.querySelector(".scroll_image")
+// const textBigImg = bigImgContainer.querySelector(".text_image")
+const textBigImg = document.createElement("div")
+textBigImg.classList.add("text_image")
 
 // Variabile che mi permette di vedere di default l'immagine
 let currentIndex = 0
@@ -50,6 +53,47 @@ for (let i = 0; i < listItems.length; i++) {
     scrollImgContainer.innerHTML += opacityScrollImg
 }
 
+// Creo il ciclo che individua il titolo dell'immagine
+// grande
+for (let i = 0; i < listTitle.length; i++) {
+
+    const titleCurrent = listTitle[i];
+
+    let displayClass = ""
+
+    if (i === currentIndex) {
+        displayClass = "d_title_visible"
+    }
+
+    // Creo html del titolo immagine
+    const tagTitle = `<h3 class="${displayClass}">${titleCurrent}</h3>`
+
+    textBigImg.innerHTML += tagTitle
+}
+
+// Creo il ciclo che individua il sottotitolo 
+// dell'immagine
+for (let i = 0; i < listText.length; i++) {
+
+    const textCurrent = listText[i];
+
+    let displayClass = ""
+
+    if (i === currentIndex) {
+        displayClass = "d_subtitle_visible"
+    }
+
+    // Creo html del titolo immagine
+    const tagSubTitle = `<p class="${displayClass}">${textCurrent}</p>`
+
+    textBigImg.innerHTML += tagSubTitle
+}
+
+bigImgContainer.append(textBigImg)
+
+console.log(textBigImg);
+console.log(bigImgContainer);
+
 // Individuo i pulsanti per cambiare le immagini
 // freccia sopra e freccia sotto
 const arrowTop = document.querySelector(".butn_top")
@@ -62,9 +106,16 @@ arrowTop.addEventListener("click", function () {
     // con classe active e rimuovo classe active
     const activeBigImg = bigImgContainer.querySelector(".active")
     const activeScrollImg = scrollImgContainer.querySelector(".active")
+    const titleVisible = bigImgContainer.querySelector(".d_title_visible")
+    const subTitleVisible = bigImgContainer.querySelector(".d_subtitle_visible")
+
+    console.log(titleVisible);
+    console.log(subTitleVisible);
 
     activeBigImg.classList.remove("active")
     activeScrollImg.classList.remove("active")
+    titleVisible.classList.remove("d_title_visible")
+    subTitleVisible.classList.remove("d_subtitle_visible")
 
     //sottraggo 1 all'indice corrente cosi da trovare l'elemento 
     //prima di questo
@@ -83,12 +134,19 @@ arrowTop.addEventListener("click", function () {
     // da riassegnarrgli poi la classe active
     const listImgTags = bigImgContainer.querySelectorAll("img")
     const listScrollImgTags = scrollImgContainer.querySelectorAll("img")
+    const listTitleTags = bigImgContainer.getElementsByTagName("h3")
+    const listSubTitleTags = bigImgContainer.getElementsByTagName("p")
+
 
     const newActiveImg = listImgTags[currentIndex]
     const newActiveScrollImg = listScrollImgTags[currentIndex]
+    const newVisibleTitle = listTitleTags[currentIndex]
+    const newVisibleSubTitle = listSubTitleTags[currentIndex]
 
     newActiveImg.classList.add("active")
     newActiveScrollImg.classList.add("active")
+    newVisibleTitle.classList.add("d_title_visible")
+    newVisibleSubTitle.classList.add("d_subtitle_visible")
 })
 
 // Aggiungo evento freccia bottom
@@ -98,9 +156,13 @@ arrowBottom.addEventListener("click", function () {
     // con classe active e rimuovo classe active
     const activeBigImg = bigImgContainer.querySelector(".active")
     const activeScrollImg = scrollImgContainer.querySelector(".active")
+    const titleVisible = bigImgContainer.querySelector(".d_title_visible")
+    const subTitleVisible = bigImgContainer.querySelector(".d_subtitle_visible")
 
     activeBigImg.classList.remove("active")
     activeScrollImg.classList.remove("active")
+    titleVisible.classList.remove("d_title_visible")
+    subTitleVisible.classList.remove("d_subtitle_visible")
 
     //sottraggo 1 all'indice corrente cosi da trovare l'elemento 
     //prima di questo
@@ -119,26 +181,17 @@ arrowBottom.addEventListener("click", function () {
     // da riassegnarrgli poi la classe active
     const listImgTags = bigImgContainer.querySelectorAll("img")
     const listScrollImgTags = scrollImgContainer.querySelectorAll("img")
+    const listTitleTags = bigImgContainer.getElementsByTagName("h3")
+    const listSubTitleTags = bigImgContainer.getElementsByTagName("p")
 
     const newActiveImg = listImgTags[currentIndex]
     const newActiveScrollImg = listScrollImgTags[currentIndex]
+    const newVisibleTitle = listTitleTags[currentIndex]
+    const newVisibleSubTitle = listSubTitleTags[currentIndex]
+
 
     newActiveImg.classList.add("active")
     newActiveScrollImg.classList.add("active")
+    newVisibleTitle.classList.add("d_title_visible")
+    newVisibleSubTitle.classList.add("d_subtitle_visible")
 })
-
-
-// for (let i = 0; i < listTitle.length; i++) {
-//     const titleCurrent = listTitle[i];
-
-//     console.log(titleCurrent);
-// }
-
-// for (let i = 0; i < listText.length; i++) {
-//     const textCurrent = listText[i];
-
-//     console.log(textCurrent);
-// }
-
-
-
