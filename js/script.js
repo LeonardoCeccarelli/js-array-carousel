@@ -40,14 +40,16 @@ for (let i = 0; i < listItems.length; i++) {
     const urlCurrent = listItems[i];
 
     let opacityClass = ""
+    let borderClass = ""
 
     if (i === currentIndex) {
         opacityClass = "active"
+        borderClass = "border_select"
     }
 
     // Creo l'html da inserire nei contenitore
     const tagImg = `<img class="${opacityClass}" src="${urlCurrent}" alt="immagine #${i}">`
-    const opacityScrollImg = `<img class="${opacityClass}" src="${urlCurrent}" alt="immagine #${i}">`
+    const opacityScrollImg = `<img class="${opacityClass} ${borderClass}" src="${urlCurrent}" alt="immagine #${i}">`
 
     bigImgContainer.innerHTML += tagImg
     scrollImgContainer.innerHTML += opacityScrollImg
@@ -66,7 +68,7 @@ for (let i = 0; i < listTitle.length; i++) {
     }
 
     // Creo html del titolo immagine
-    const tagTitle = `<h3 class="${displayClass}">${titleCurrent}</h3>`
+    const tagTitle = `<h3 class="${displayClass} m-0 py-1">${titleCurrent}</h3>`
 
     textBigImg.innerHTML += tagTitle
 }
@@ -84,7 +86,7 @@ for (let i = 0; i < listText.length; i++) {
     }
 
     // Creo html del titolo immagine
-    const tagSubTitle = `<p class="${displayClass}">${textCurrent}</p>`
+    const tagSubTitle = `<p class="${displayClass} m-0">${textCurrent}</p>`
 
     textBigImg.innerHTML += tagSubTitle
 }
@@ -113,7 +115,7 @@ arrowTop.addEventListener("click", function () {
     console.log(subTitleVisible);
 
     activeBigImg.classList.remove("active")
-    activeScrollImg.classList.remove("active")
+    activeScrollImg.classList.remove("active", "border_select")
     titleVisible.classList.remove("d_title_visible")
     subTitleVisible.classList.remove("d_subtitle_visible")
 
@@ -144,7 +146,7 @@ arrowTop.addEventListener("click", function () {
     const newVisibleSubTitle = listSubTitleTags[currentIndex]
 
     newActiveImg.classList.add("active")
-    newActiveScrollImg.classList.add("active")
+    newActiveScrollImg.classList.add("active", "border_select")
     newVisibleTitle.classList.add("d_title_visible")
     newVisibleSubTitle.classList.add("d_subtitle_visible")
 })
@@ -160,7 +162,7 @@ arrowBottom.addEventListener("click", function () {
     const subTitleVisible = bigImgContainer.querySelector(".d_subtitle_visible")
 
     activeBigImg.classList.remove("active")
-    activeScrollImg.classList.remove("active")
+    activeScrollImg.classList.remove("active", "border_select")
     titleVisible.classList.remove("d_title_visible")
     subTitleVisible.classList.remove("d_subtitle_visible")
 
@@ -191,7 +193,7 @@ arrowBottom.addEventListener("click", function () {
 
 
     newActiveImg.classList.add("active")
-    newActiveScrollImg.classList.add("active")
+    newActiveScrollImg.classList.add("active", "border_select")
     newVisibleTitle.classList.add("d_title_visible")
     newVisibleSubTitle.classList.add("d_subtitle_visible")
 })
