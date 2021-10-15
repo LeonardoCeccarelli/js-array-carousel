@@ -136,8 +136,8 @@ arrowTop.addEventListener("click", function () {
     // da riassegnarrgli poi la classe active
     const listImgTags = bigImgContainer.querySelectorAll("img")
     const listScrollImgTags = scrollImgContainer.querySelectorAll("img")
-    const listTitleTags = bigImgContainer.getElementsByTagName("h3")
-    const listSubTitleTags = bigImgContainer.getElementsByTagName("p")
+    const listTitleTags = bigImgContainer.querySelectorAll("h3")
+    const listSubTitleTags = bigImgContainer.querySelectorAll("p")
 
 
     const newActiveImg = listImgTags[currentIndex]
@@ -183,8 +183,8 @@ arrowBottom.addEventListener("click", function () {
     // da riassegnarrgli poi la classe active
     const listImgTags = bigImgContainer.querySelectorAll("img")
     const listScrollImgTags = scrollImgContainer.querySelectorAll("img")
-    const listTitleTags = bigImgContainer.getElementsByTagName("h3")
-    const listSubTitleTags = bigImgContainer.getElementsByTagName("p")
+    const listTitleTags = bigImgContainer.querySelectorAll("h3")
+    const listSubTitleTags = bigImgContainer.querySelectorAll("p")
 
     const newActiveImg = listImgTags[currentIndex]
     const newActiveScrollImg = listScrollImgTags[currentIndex]
