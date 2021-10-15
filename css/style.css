@@ -3,7 +3,7 @@ body {
 }
 
 .main_carousel {
-    background-color: white;
+    background-color: black;
     box-shadow: 0 0 10px #2196f3, 0 0 40px #2196f3, 0 0 80px #2196f3;
 }
 
@@ -55,13 +55,13 @@ body {
 }
 
 .butn_top {
-    top: 5px;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .butn_bottom {
-    bottom: 5px;
+    bottom: 8px;
     left: 50%;
     transform: translateX(-50%);
 }
