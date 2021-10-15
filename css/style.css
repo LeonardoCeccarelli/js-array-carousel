@@ -38,7 +38,7 @@ body {
 
 .scroll_image_container {
     position: relative;
-    width: 20%;
+    flex-grow: 1;
 }
 
 .scroll_image img {
